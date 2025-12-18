@@ -238,25 +238,7 @@ O projeto segue uma arquitetura MVC simples com:
 
 * * *
 
-✅ **Validações**
-----------------
 
-Validação rigorosa utilizando **express-validator**:
-
-* **Username**: 3–20 caracteres, único
-    
-* **Senha**: mínimo 8 caracteres + regras de complexidade
-    
-* **Email**: formato válido + único
-    
-* **Telefone**: padrão brasileiro
-    
-* **Foto de perfil**: JPG, PNG ou WEBP (máx. 5MB)
-    
-* **Habilidades**: 3–50 caracteres
-    
-
-* * *
 
 🗄️ **Modelos de Dados**
 ------------------------
@@ -270,23 +252,7 @@ Validação rigorosa utilizando **express-validator**:
 
 * * *
 
-🎨 **Design & UI**
-------------------
 
-* Cores principais:
-    
-    * Azul escuro: `#1e3c72`
-        
-    * Azul claro: `#2a5298`
-        
-* Estilização com Bootstrap 5
-    
-* Responsividade mobile-first
-    
-* Uso de cards, modais e componentes visuais modernos
-    
-
-* * *
 
 🔄 **Fluxo de Registro**
 ------------------------
