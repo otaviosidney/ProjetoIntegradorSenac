@@ -1,0 +1,104 @@
+body {
+    background: linear-gradient(to top, rgb(1, 1, 230) 70%, white 50%);
+    height: 100vh; /* Altura total da viewport */
+    margin: 0; /* Remove a margem padrão do body */
+}
+
+#logo{
+    background-color: white;
+    display: block; /* Garante que a imagem se comporte como um bloco para aceitar margem */
+    margin: 0 auto; /* Margem automática para centralizar horizontalmente */
+    width: 25%;
+    height: 200px; /* Defina a altura desejada */
+}
+
+#descricao {
+    
+    color:#1200d6;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: -5px;
+    font-size: 50px;
+    text-align: center;
+}
+
+#criarconta{
+    color:white;
+    position:relative;
+    font-size: 24px;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-top: 100px;
+}
+
+.new-account-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .new-account-container label {
+    display: block;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .new-account-container input[type="text"],
+  .new-account-container input[type="password"],
+  .new-account-container input[type="repeatpassword"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+  }
+  
+  .new-account{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkgreen; /* Verde */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .new-account:hover {
+    background-color: green;
+  }
+
+  footer {
+    position: sticky; /* ou position: fixed; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    z-index: 100; /* Garante que o rodapé fique acima de outros elementos */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar o rodapé */
+}
+
+.botao-pagina-inicial {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkgreen; /* Verde */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .botao-pagina-inicial:hover {
+    background-color: green;
+  }

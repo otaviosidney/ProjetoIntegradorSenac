@@ -1,0 +1,163 @@
+<%- include("partials/head",{title:"Página Não Encontrada | Mercado Business"}) %>
+    <style>
+        .error-hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 6rem 0 4rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .error-container {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .error-icon {
+            font-size: 8rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .error-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-error {
+            background: white;
+            color: #2a5298;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-error:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+            color: #1e3c72;
+        }
+        
+        .btn-error-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-error-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .error-hero {
+                padding: 7rem 0 3rem 0;
+            }
+            
+            .error-icon {
+                font-size: 6rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .error-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-error {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .error-hero {
+                padding: 6rem 0 2rem 0;
+            }
+            
+            .error-icon {
+                font-size: 5rem;
+            }
+            
+            .error-code {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    
+    <!-- Página de Erro 404 -->
+    <div class="error-hero">
+        <div class="container">
+            <div class="error-container">
+                <i class="bi bi-exclamation-triangle error-icon"></i>
+                <h1 class="error-code">404</h1>
+                <h2 class="error-title">Página Não Encontrada</h2>
+                <p class="error-description">
+                    A página que você está procurando não foi encontrada. 
+                    Verifique se o endereço está correto ou volte para a página inicial.
+                </p>
+                <div class="error-actions">
+                    <a href="/" class="btn btn-error">
+                        <i class="bi bi-house"></i>
+                        Voltar para Home
+                    </a>
+                    <a href="javascript:history.back()" class="btn btn-error btn-error-secondary">
+                        <i class="bi bi-arrow-left"></i>
+                        Voltar à Página Anterior
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/foot") %>
+</body>
+</html>

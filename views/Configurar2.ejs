@@ -1,0 +1,102 @@
+<%- include("partials/head",{title:"Configurar Perfil - Trabalho | Mercado Business"}) %>
+    <link rel="stylesheet" href="/css/configurar-perfil.css">
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <!-- Hero Section -->
+    <div class="config-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="config-container">
+                        <!-- Card de Configuração -->
+                        <div class="config-card">
+                            <div class="config-header">
+                                <h2 class="config-form-title">Configure o seu Perfil</h2>
+                                <p class="config-form-subtitle">Selecione sua área de atuação</p>
+                                
+                                <!-- Indicador de Progresso -->
+                                <div class="progress-container mt-3">
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 50%;" 
+                                             aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-1">
+                                        <small class="text-muted fw-bold">Etapa 1</small>
+                                        <small class="text-primary fw-bold">Etapa 2</small>
+                                        <small class="text-primary fw-bold">Etapa 3</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Alertas -->
+                            <%- include("partials/messages") %>
+
+                            <!-- Formulário -->
+                            <form method="POST" action="/auth/register/step/2" id="step2Form" class="config-form">
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold mb-3">Selecione sua área de atuação:</label>
+                                    
+                                    <div class="work-options <%= errors.work ? 'is-invalid' : '' %>">
+                                        <div class="form-check-card">
+                                            <input class="form-check-input" type="radio" name="work" id="contabilidade" value="contabilidade" <%= old?.work === 'contabilidade' ? 'checked' : '' %> required>
+                                            <label class="form-check-label" for="contabilidade">
+                                                <div class="work-option-content">
+                                                    <i class="bi bi-calculator work-icon"></i>
+                                                    <span>Contabilidade</span>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check-card">
+                                            <input class="form-check-input" type="radio" name="work" id="marketing" value="marketing_digital" <%= old?.work === 'marketing_digital' ? 'checked' : '' %> required>
+                                            <label class="form-check-label" for="marketing">
+                                                <div class="work-option-content">
+                                                    <i class="bi bi-megaphone work-icon"></i>
+                                                    <span>Marketing Digital</span>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check-card">
+                                            <input class="form-check-input" type="radio" name="work" id="coaching" value="coaching" <%= old?.work === 'coaching' ? 'checked' : '' %> required>
+                                            <label class="form-check-label" for="coaching">
+                                                <div class="work-option-content">
+                                                    <i class="bi bi-person-badge work-icon"></i>
+                                                    <span>Coaching</span>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check-card">
+                                            <input class="form-check-input" type="radio" name="work" id="reformas" value="reformas" <%= old?.work === 'reformas' ? 'checked' : '' %> required>
+                                            <label class="form-check-label" for="reformas">
+                                                <div class="work-option-content">
+                                                    <i class="bi bi-hammer work-icon"></i>
+                                                    <span>Reformas</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <% if (errors.work) { %>
+                                        <div class="invalid-feedback">
+                                            <%= errors.work.msg %>
+                                        </div>
+                                    <% } %>
+                                </div>
+
+                                <div class="d-flex gap-3">
+                                    <button type="submit" class="btn btn-next flex-fill">
+                                        <i class="bi bi-arrow-right me-2"></i>
+                                        Próximo
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/foot") %>

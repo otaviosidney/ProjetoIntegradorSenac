@@ -1,0 +1,75 @@
+<%- include("partials/head",{title:"Login | Mercado Business"}) %>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <!-- Hero Section -->
+    <div class="login-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="login-container">
+                        <!-- Card de Login -->
+                        <div class="login-card">
+                            <div class="login-header">
+                                <h2 class="login-form-title">Login</h2>
+                                <p class="login-form-subtitle">Entre com suas credenciais</p>
+                            </div>
+
+                            <!-- Alertas -->
+                            <%- include("partials/messages") %>
+                            
+
+                            <!-- Formulário -->
+                            <form method="POST" action="/auth/login" class="login-form">
+                                <div class="mb-4">
+                                    <label for="username" class="form-label">Usuário</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-person"></i>
+                                        </span>
+                                        <input value="<%= old?.username || '' %>" type="text" class="form-control <%= errors.username ? 'is-invalid' : '' %>" id="username" name="username" placeholder="Digite seu usuário" required minlength="3" maxlength="20">
+                                        <% if (errors.username) { %>
+                                            <div class="invalid-feedback">
+                                                <%= errors.username.msg %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="password" class="form-label">Senha</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock"></i>
+                                        </span>
+                                        <input type="password" class="form-control <%= errors.password ? 'is-invalid' : '' %>" id="password" name="password" placeholder="Digite sua senha" required minlength="8" maxlength="255">
+                                        <% if (errors.password) { %>
+                                            <div class="invalid-feedback">
+                                                <%= errors.password.msg %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-login w-100">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                                    Entrar
+                                </button>
+                            </form>
+
+                            <!-- Link para Cadastro -->
+                            <div class="login-footer text-center mt-4">
+                                <p class="mb-0">
+                                    Não tem uma conta?
+                                    <a href="/auth/register" class="register-link">Crie uma conta nova</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include("partials/foot") %>

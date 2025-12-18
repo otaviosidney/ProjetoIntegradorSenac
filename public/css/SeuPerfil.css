@@ -1,0 +1,227 @@
+body {
+    background: linear-gradient(to top, rgb(1, 1, 230) 70%, white 50%);
+    height: 100vh; /* Altura total da viewport */
+    margin: 0; /* Remove a margem padrão do body */
+}
+
+#logo{
+    background-color: white;
+    display: block; /* Garante que a imagem se comporte como um bloco para aceitar margem */
+    margin: 0 auto; /* Margem automática para centralizar horizontalmente */
+    width: 25%;
+    height: 200px; /* Defina a altura desejada */
+}
+
+#descricao {
+    
+    color:#1200d6;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: -5px;
+    font-size: 50px;
+    text-align: center;
+}
+
+#paginainicial{
+    color:white;
+    font-size: 24px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-top: 100px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.configure-account-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .configure-account-container label {
+    display: block;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+/* 1. O Contêiner de Fundo Branco (mantido do exemplo anterior) */
+.perfil-container {
+    background-color: white; /* **Fundo branco conforme solicitado** */
+    padding: 40px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px; /* Um pouco mais estreito para perfil único */
+    margin: 0 auto; 
+}
+
+/* 2. Layout do Cabeçalho (Quadrado + Informações Lado a Lado) */
+.perfil-cabecalho {
+    display: flex; /* Habilita o Flexbox */
+    gap: 40px; /* Espaço entre o quadrado e as informações */
+    align-items: flex-start; /* Alinha os itens pelo topo */
+    margin-bottom: 30px; /* Espaço abaixo desta seção */
+}
+
+/* 3. Lado Esquerdo: Quadrado e Arroba */
+.perfil-lado-esquerdo {
+    display: flex;
+    flex-direction: column; /* Coloca o arroba abaixo do quadrado */
+    align-items: center; /* Centraliza o conteúdo (quadrado e arroba) */
+}
+
+.quadrado-grande {
+    width: 150px; /* Maior que o anterior */
+    height: 150px;
+    background-color: #ccc;
+    border: 4px solid #333;
+    border-radius: 50%; /* Faz o quadrado virar um círculo, mais comum em perfis! Mude para `15px` se quiser um quadrado com cantos arredondados */
+    margin-bottom: 10px;
+    flex-shrink: 0; /* Impede que o quadrado diminua */
+}
+
+.arroba {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* 4. Lado Direito: Informações */
+.perfil-informacoes {
+    padding-top: 20px; /* Ajusta o alinhamento vertical com o círculo/quadrado */
+    line-height: 1.6; /* Melhora a leitura do texto */
+}
+
+.perfil-informacoes p {
+    margin: 5px 0; /* Espaçamento entre as linhas de informação */
+}
+
+/* 5. Título e Espaço Vazio para Postagens */
+.titulo-postagens {
+    margin-top: 30px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ddd; /* Linha de separação */
+    color: #333;
+}
+
+.postagens-vazias {
+    min-height: 300px; /* **Define o espaço vazio** */
+    background-color: #f9f9f9; /* Uma cor levemente diferente para demarcar a área */
+    border: 1px dashed #ccc; /* Borda tracejada para indicar que está vazio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+/* 1. Layout do Título e Botão (Flexbox) */
+.postagens-header {
+    display: flex; /* Habilita o Flexbox */
+    justify-content: space-between; /* Empurra o título para a esquerda e o botão para a direita */
+    align-items: center; /* Alinha o texto do título e o botão verticalmente */
+    margin-top: 30px;
+    padding-bottom: 10px; /* Adiciona espaço abaixo do cabeçalho */
+    border-bottom: 2px solid #ddd; /* Move a linha de separação para o contêiner Flexbox */
+}
+
+/* 2. Estilo do Título (Ajustado) */
+.titulo-postagens {
+    /* Remova as margens padrão do h2 para alinhar melhor no Flexbox */
+    margin: 0; 
+    color: #333;
+}
+
+/* 3. Estilização do Botão "Adicionar Postagem" */
+.botao-adicionar-postagem {
+    /* Estilo de botão */
+    background-color: #28a745; /* Cor verde (comum para 'adicionar') */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+
+    /* Propriedades Específicas de Link */
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.botao-adicionar-postagem:hover {
+    background-color: #1e7e34; /* Cor mais escura ao passar o mouse */
+}
+
+.aviso-vazio {
+    color: #666;
+    font-style: italic;
+}
+
+
+/* 1. Estilização do Link (Botão) */
+.botao-editar {
+    /* Propriedades de Botão */
+    background-color: #007BFF; /* Cor principal */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+
+    /* Propriedades Específicas de Link */
+    text-decoration: none; /* **CRUCIAL: Remove o sublinhado do link** */
+    display: inline-block; /* Permite que o link tenha padding e largura/altura */
+}
+
+.botao-editar:hover {
+    background-color: #0056b3; 
+}
+
+/* 2. Posicionamento do Botão */
+.perfil-acoes {
+    margin-left: auto; /* Empurra para a direita usando Flexbox */
+    align-self: flex-start; 
+    padding-top: 10px; 
+}
+
+/* Estilo para a linha divisória */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #eee;
+    margin: 30px 0;
+}
+
+  footer {
+    position: sticky; /* ou position: fixed; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    z-index: 100; /* Garante que o rodapé fique acima de outros elementos */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar o rodapé */
+}
+
+.sair {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkgreen; /* Verde */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sair:hover {
+    background-color: green;
+  }

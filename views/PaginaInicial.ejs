@@ -1,0 +1,76 @@
+<%- include("partials/head",{title:"Home - Mercado Business"}) %>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <%- include("partials/navbar") %>
+
+    <div style="height: 56px;"></div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <img src="/images/MercadoBusiness.png" alt="Mercado Business" class="logo">
+            <h1 class="mb-3 display-5 fw-bold">CONECTANDO VOCÊ E O SEU EMPREGO</h1>
+            <p class="lead fs-5">Encontre profissionais talentosos ou oportunidades incríveis</p>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="section-title h3">Descubra Profissionais</h2>
+                <p class="section-subtitle">Conecte-se com profissionais talentosos da nossa comunidade</p>
+            </div>
+        </div>
+
+        <!-- Lista de Usuários -->
+        <div class="row g-4">
+            <% if (users.length !==0) { %>
+                <% users.forEach((user)=> { %>
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body text-center d-flex flex-column">
+                                <img src="<%= user.profileImage %>" alt="<%= user.name %>"
+                                    class="user-image rounded-circle mx-auto mb-3">
+                                <h5 class="card-title text-primary">@<%= user.username %>
+                                </h5>
+                                <% if (user.work) { %>
+                                    <p class="card-text text-muted mb-3">
+                                        <%= user.work %>
+                                    </p>
+                                    <% } %>
+                                        <div class="mt-auto">
+                                            <a href="/profile/user/<%= user.id %>" class="view-badge">Ver Perfil</a>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <div class="col-12">
+                                <div class="card text-center py-5">
+                                    <div class="card-body">
+                                        <i class="bi bi-people display-4 text-muted mb-3"></i>
+                                        <h3 class="h4 text-muted mb-3">Nenhum usuário encontrado</h3>
+                                        <p class="text-muted mb-0">Parece que não há usuários cadastrados no momento.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+        </div>
+
+        <% if (users.length !==0) { %>
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="/users" class="btn btn-outline-primary btn-lg px-4 py-2 rounded-pill shadow-sm">
+                    <i class="bi bi-people-fill me-2"></i> Ver Mais Perfis
+                </a>
+            </div>
+        </div>
+        <% } %>
+    </main>
+
+<%- include("partials/foot") %>

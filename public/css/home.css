@@ -1,0 +1,95 @@
+.hero-section {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 6rem 0 4rem 0;
+    margin-top: -76px;
+    padding-top: 8rem;
+}
+
+.logo {
+    max-width: 320px;
+    margin-bottom: 2rem;
+}
+
+.user-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card:hover .user-image {
+    transform: scale(1.05);
+}
+
+.view-badge {
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.view-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(42, 82, 152, 0.3);
+    color: white;
+}
+
+.section-title {
+    color: #2a5298;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 5rem 0 3rem 0;
+        padding-top: 7rem;
+    }
+
+    .logo {
+        max-width: 250px;
+    }
+
+    .user-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 4rem 0 2.5rem 0;
+        padding-top: 6rem;
+    }
+
+    .logo {
+        max-width: 200px;
+    }
+}
+
+/* Espaçamento básico */
+.hero-section+main {
+    margin-top: 2rem;
+}

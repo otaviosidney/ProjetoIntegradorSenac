@@ -1,0 +1,93 @@
+<%- include("partials/head",{title:"Criar Conta | Mercado Business"}) %>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    
+    <!-- Hero Section -->
+    <div class="login-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="login-container">
+                        <!-- Card de Cadastro -->
+                        <div class="login-card">
+                            <div class="login-header">
+                                <h2 class="login-form-title">Criar Conta</h2>
+                                <p class="login-form-subtitle">Cadastre-se para começar</p>
+                            </div>
+
+                            <!-- Alertas -->
+                            <%- include("partials/messages") %>
+
+                            <!-- Formulário -->
+                            <form method="POST" action="/auth/register" id="createForm" class="login-form">
+                                <div class="mb-4">
+                                    <label for="username" class="form-label">Usuário</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-person"></i>
+                                        </span>
+                                        <input value="<%= old?.username || '' %>" type="text" class="form-control <%= errors.username ? 'is-invalid' : '' %>" id="username" name="username" placeholder="Digite seu usuário" minlength="3" maxlength="20" required>
+                                        <% if (errors.username) { %>
+                                            <div class="invalid-feedback">
+                                                <%= errors.username.msg %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="password" class="form-label">Senha</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock"></i>
+                                        </span>
+                                        <input type="password" class="form-control <%= errors.password ? 'is-invalid' : '' %>" id="password" name="password" placeholder="Digite sua senha" required>
+                                        <% if (errors.password) { %>
+                                            <div class="invalid-feedback">
+                                                <%= errors.password.msg %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                    <small class="form-text text-muted">A senha deve ter no mínimo 8 caracteres, conter ao menos uma letra minúscula, uma maiúscula, um número e um caractere especial.</small>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="repeatpassword" class="form-label">Repetir Senha</label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text">
+                                            <i class="bi bi-lock-fill"></i>
+                                        </span>
+                                        <input type="password" class="form-control <%= errors.repeatpassword ? 'is-invalid' : '' %>" id="repeatpassword" name="repeatpassword" placeholder="Digite a senha novamente" required>
+                                        <% if (errors.repeatpassword) { %>
+                                            <div class="invalid-feedback">
+                                                <%= errors.repeatpassword.msg %>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-login w-100">
+                                    <i class="bi bi-person-plus me-2"></i>
+                                    Criar Conta
+                                </button>
+                            </form>
+
+                            <!-- Link para Login -->
+                            <div class="login-footer text-center mt-4">
+                                <p class="mb-0">
+                                    Já tem uma conta?
+                                    <a href="/auth/login" class="register-link">Faça login</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/foot") %>
+</body>
+</html>

@@ -1,0 +1,103 @@
+ body {
+     background-color: #f8f9fa;
+     min-height: 100vh;
+ }
+
+ .navbar-custom {
+     background-color: #2a5298;
+ }
+
+ .profile-header {
+     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+     color: white;
+     border-radius: 0 0 20px 20px;
+     padding: 1.5rem 0;
+     margin-top: 56px;
+ }
+
+ .profile-img {
+     width: 150px;
+     height: 150px;
+     object-fit: cover;
+     border: 5px solid white;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+ }
+
+ .profile-img-edit {
+     width: 150px;
+     height: 150px;
+     object-fit: cover;
+     border: 5px solid #e9ecef;
+     cursor: pointer;
+     transition: all 0.3s;
+ }
+
+
+ .post-card {
+     border-left: 4px solid #0d6efd;
+     transition: transform 0.2s;
+ }
+
+ .post-card:hover {
+     transform: translateX(5px);
+ }
+
+
+ .profile-img-edit:hover {
+     opacity: 0.8;
+ }
+
+ .skill-tag {
+     background-color: #e9ecef;
+     border-radius: 20px;
+     padding: 5px 12px;
+     margin: 3px;
+     display: inline-block;
+     font-size: 0.85rem;
+ }
+
+ .skill-tag-remove {
+     margin-left: 5px;
+     cursor: pointer;
+     color: #6c757d;
+ }
+
+ .skill-tag-remove:hover {
+     color: #dc3545;
+ }
+
+ main {
+     margin-top: 0;
+ }
+
+ .form-control:focus,
+ .form-select:focus {
+     border-color: #2a5298;
+     box-shadow: 0 0 0 0.25rem rgba(42, 82, 152, 0.25);
+ }
+
+ .editor-container {
+     background: white;
+     border-radius: 8px;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     overflow: hidden;
+ }
+
+ .ql-toolbar.ql-snow {
+     border: none;
+     border-bottom: 1px solid #e9ecef;
+ }
+
+ .ql-container.ql-snow {
+     border: none;
+     min-height: 300px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ .action-buttons .btn {
+     margin-right: 8px;
+     margin-bottom: 8px;
+ }
+
+
+ 

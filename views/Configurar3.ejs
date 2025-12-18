@@ -1,0 +1,212 @@
+<%- include("partials/head",{title:"Configurar Perfil - Finalizar | Mercado Business"}) %>
+    <link rel="stylesheet" href="/css/configurar-perfil3.css">
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    
+    <!-- Modal de Validação -->
+    <div class="modal fade" id="validationModal" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="validationModalLabel">Atenção</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="validationMessage">
+                    <!-- Mensagem de erro será inserida aqui -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="config-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="config-container">
+                        <!-- Card de Configuração -->
+                        <div class="config-card">
+                            <div class="config-header">
+                                <h2 class="config-form-title">Finalizar Perfil</h2>
+                                <p class="config-form-subtitle">Adicione seus dados de contato</p>
+                                
+                                <!-- Indicador de Progresso -->
+                                <div class="progress-container mt-3">
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 100%;" 
+                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mt-1">
+                                        <small class="text-muted fw-bold">Etapa 1</small>
+                                        <small class="text-muted fw-bold">Etapa 2</small>
+                                        <small class="text-primary fw-bold">Etapa 3</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Alertas -->
+                            <%- include("partials/messages") %>
+
+                            <!-- Formulário -->
+                            <form method="POST" action="/auth/register/step/3" id="step3Form" class="config-form" enctype="multipart/form-data">
+                                
+                                <!-- Upload de Foto -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-semibold">Foto de Perfil</label>
+                                    <div class="profile-picture-container">
+                                        <div class="profile-picture-wrapper">
+                                            <div class="profile-picture" id="profilePicture">
+                                                <i class="bi bi-person-circle default-icon"></i>
+                                            </div>
+                                            <input type="file" name="profileImage" id="profileImage" 
+                                                   accept="image/*" class="d-none">
+                                            <button type="button" class="btn btn-outline-primary btn-sm mt-2" 
+                                                    id="changePictureBtn">
+                                                <i class="bi bi-camera me-1"></i> Alterar Foto
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <% if (errors.profileImage) { %>
+                                        <div class="invalid-feedback d-block">
+                                            <%= errors.profileImage.msg %>
+                                        </div>
+                                    <% } %>
+                                </div>
+                                <!-- Campo de Telefone -->
+                                <div class="mb-4">
+                                    <label for="phone" class="form-label fw-semibold">Telefone</label>
+                                    <input type="tel" class="form-control <%= errors.phone ? 'is-invalid' : '' %>" id="phone" name="phone" 
+                                           placeholder="(xx) xxxxx-xxxx" value="<%= old?.phone || '' %>" required>
+                                    <% if (errors.phone) { %>
+                                        <div class="invalid-feedback">
+                                            <%= errors.phone.msg %>
+                                        </div>
+                                    <% } %>
+                                </div>
+
+                                <!-- Campo de Email -->
+                                <div class="mb-4">
+                                    <label for="email" class="form-label fw-semibold">E-mail</label>
+                                    <input type="email" class="form-control <%= errors.email ? 'is-invalid' : '' %>" id="email" name="email" 
+                                           placeholder="nome@exemplo.com" value="<%= old?.email || '' %>" required>
+                                    <% if (errors.email) { %>
+                                        <div class="invalid-feedback">
+                                            <%= errors.email.msg %>
+                                        </div>
+                                    <% } %>
+                                </div>
+
+                                
+
+                                <div class="d-flex gap-3">
+                                    <button type="submit" class="btn btn-primary flex-fill">
+                                        <i class="bi bi-check-lg me-2"></i>
+                                        Finalizar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/foot") %>
+</body>
+<script>
+    // Elementos DOM
+    const profileImageInput = document.getElementById('profileImage');
+    const changePictureBtn = document.getElementById('changePictureBtn');
+    const profilePicture = document.getElementById('profilePicture');
+    const step3Form = document.getElementById('step3Form');
+    const validationModal = new bootstrap.Modal(document.getElementById('validationModal'));
+    const validationMessage = document.getElementById('validationMessage');
+
+    // Função para exibir mensagem de erro no modal
+    function showErrorModal(message) {
+        validationMessage.textContent = message;
+        validationModal.show();
+    }
+
+    // Abrir seletor de arquivo ao clicar no botão
+    changePictureBtn.addEventListener('click', () => {
+        profileImageInput.click();
+    });
+
+    // Preview da imagem selecionada
+    profileImageInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (!file) return;
+
+        // Verificar se é uma imagem
+        if (!file.type.match('image.*')) {
+            showErrorModal('Por favor, selecione uma imagem válida (JPEG, PNG, etc).');
+            return;
+        }
+
+        // Verificar tamanho do arquivo (máximo 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            showErrorModal('A imagem selecionada é muito grande. Por favor, selecione uma imagem de até 5MB.');
+            return;
+        }
+
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            // Atualizar visualização da imagem
+            profilePicture.innerHTML = '';
+            profilePicture.style.backgroundImage = `url('${e.target.result}')`;
+            profilePicture.style.backgroundSize = 'cover';
+            profilePicture.style.backgroundPosition = 'center';
+        }
+
+        reader.onerror = function() {
+            showErrorModal('Erro ao carregar a imagem. Por favor, tente novamente.');
+        }
+
+        reader.readAsDataURL(file);
+    });
+
+    // Validação do formulário antes do envio
+    step3Form.addEventListener('submit', function(e) {
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        
+        // Validação básica de telefone (formato brasileiro)
+        const phoneRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+        if (!phoneRegex.test(phone)) {
+            e.preventDefault();
+            showErrorModal('Por favor, insira um telefone válido no formato (xx) xxxxx-xxxx');
+            return;
+        }
+        
+        // Validação básica de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            e.preventDefault();
+            showErrorModal('Por favor, insira um e-mail válido no formato nome@exemplo.com');
+            return;
+        }
+        
+        // Se todas as validações passarem, o formulário será enviado
+    });
+
+    // Máscara para o telefone
+    document.getElementById('phone').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        
+        if (value.length <= 10) {
+            value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+        } else {
+            value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+        }
+        
+        e.target.value = value;
+    });
+</script>
+</html>
